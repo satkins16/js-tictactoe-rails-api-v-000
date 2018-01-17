@@ -84,7 +84,7 @@ function saveGame() {
   } else {
     $.post('/games', gameData, function(game) {
       currentGame = game.data.id;
-      $('#games').append(`<button id="gameid-${game.data.id}">${game.data.id}</button><br>`);
+      $('#games').append(`<button id="gameid-${game.data.id}">${game.data.id}</button>${game.data.attributes["updated-at"]}<br>`);
       $("#gameid-" + game.data.id).on('click', () => reloadGame(game.data.id));
     });
   }
@@ -100,7 +100,7 @@ function showPreviousGames() {
 }
 
 function buttonizePreviousGame(game) {
-  $('#games').append(`<button id="gameid-${game.id}">${game.id}</button><br>`);
+  $('#games').append(`<button id="gameid-${game.id}">${game.id}</button>${game.attributes["updated-at"]}<br>`);
   $(`#gameid-${game.id}`).on('click', () => reloadGame(game.id));
 }
 
