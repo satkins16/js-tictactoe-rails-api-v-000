@@ -84,6 +84,7 @@ function saveGame() {
   } else {
     $.post('/games', gameData, function(game) {
       currentGame = game.data.id;
+      debugger
       $('#games').append(`<button id="gameid-${game.data.id}">${game.data.id}</button>${game.updated_at}<br>`);
       $("#gameid-" + game.data.id).on('click', () => reloadGame(game.data.id));
     });
