@@ -101,7 +101,7 @@ function showPreviousGames() {
 
 function buttonizePreviousGame(game) {
   debugger
-  $('#games').append(`<button id="gameid-${game.id}">${game.id}</button>${game.data.attributes["updated-at"]}<br>`);
+  $('#games').append(`<button id="gameid-${game.id}">${game.id}</button>${game.attributes["updated-at"]}<br>`);
   $(`#gameid-${game.id}`).on('click', () => reloadGame(game.id));
 }
 
